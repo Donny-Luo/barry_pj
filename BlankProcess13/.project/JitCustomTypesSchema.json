@@ -1,0 +1,179 @@
+{
+  "exportedBy": null,
+  "bundleHash": null,
+  "version": "1.0.0.0",
+  "jitAssemblyCompilerCommands": [
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 1,
+        "idRef": "ForEachRowConnections`1_1",
+        "hash": "ForEachRowConnections`1_1|DataRow|PsbLBLF5cM4BdNAGudL5cfz2pnDMxKW4tfqMlvNo",
+        "dataType": "System.Data.DataRow, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "FLXCB/SO",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "POL",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "POD",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ETD",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ETA",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Vessel",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Voyage",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "String",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": " Departure date",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Arrival date",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "IPI",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ID",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "OSO",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "OEO",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Booking Party",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataRow1",
+        "hash": "ForEachRowConnections`1_1|DataRow|YeXRM5KokXuAytda6pcjNPLXaxrDfouL0nDxNzrlds",
+        "assemblyName": "Studio.Generated.TypedDataRow1"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 2,
+        "idRef": "ForEachRowConnections`1_3",
+        "hash": "ForEachRowConnections`1_3|DataRow|PsbLBLF5cM4BdNAGudL5cfz2pnDMxKW4tfqMlvNo",
+        "dataType": "System.Data.DataRow, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "FLXCB/SO",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "POL",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "POD",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ETD",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ETA",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Vessel",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Voyage",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "String",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": " Departure date",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Arrival date",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "IPI",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ID",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "OSO",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "OEO",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Booking Party",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataRow2",
+        "hash": "ForEachRowConnections`1_3|DataRow|YeXRM5KokXuAytda6pcjNPLXaxrDfouL0nDxNzrlds",
+        "assemblyName": "Studio.Generated.TypedDataRow2"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 3,
+        "idRef": "ForEachRowConnections`1_4",
+        "hash": "ForEachRowConnections`1_4|DataRow|0zEd25JuoaQJGgRTkpYyfrWbgrtrXfOfqfi5ClmP7M",
+        "dataType": "System.Data.DataRow, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "181AY0232582380P1",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataRow3",
+        "hash": "ForEachRowConnections`1_4|DataRow|F8yCJPf9YGsqVdtu8WTaTLFJQ4iq3WFFhyMUyflU",
+        "assemblyName": "Studio.Generated.TypedDataRow3"
+      }
+    }
+  ]
+}

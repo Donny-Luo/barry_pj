@@ -1,0 +1,233 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1245,1923" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uasb="clr-namespace:UiPath.Activities.System.Binding;assembly=UiPath.System.Activities" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="48">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Activities.System.Binding</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Word</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Presentations</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Presentations</AssemblyReference>
+      <AssemblyReference>UiPath.Presentations.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <ueab:SequenceX DisplayName="Single Excel Process Scope" sap:VirtualizedContainerService.HintSize="648,1858" sap2010:WorkflowViewState.IdRef="SequenceX_1">
+    <ueab:SequenceX.Variables>
+      <Variable x:TypeArguments="ue:IWorkbookQuickHandle" Default="[new WorkbookQuickHandle(workbookPath:=&quot;Project_Notebook.xlsx&quot;,visible:=True,autoSave:=False,createNew:=True,readOnly:=False,isWorkspace:=True)]" Name="Notes" />
+      <Variable x:TypeArguments="uasb:BindingsRepository" Default="[new UiPath.Activities.System.Binding.BindingsRepository()]" Name="Saved" />
+    </ueab:SequenceX.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="586,1746" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="[string.Format(&quot;{0}\Downloads\Cancellation Excel.xlsx&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]">
+      <ueab:ExcelApplicationCard.Body>
+        <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+          </ActivityAction.Argument>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,1480" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Ocean FCL - Assign Carrier Ops to Shipment (72)" sap:VirtualizedContainerService.HintSize="510,1388" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="d14b027c-5c3a-4c56-9ffd-b7a3c3f39b81" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,1172" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="False" sap:VirtualizedContainerService.HintSize="434,1078" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" Range="[Excel.Sheet(&quot;Sheet1&quot;).Range(&quot;A2&quot;)]" SaveAfterEachRow="False">
+                      <ueab:ExcelForEachRowX.Body>
+                        <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                          <ActivityAction.Argument1>
+                            <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="CurrentRow" />
+                          </ActivityAction.Argument1>
+                          <ActivityAction.Argument2>
+                            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                          </ActivityAction.Argument2>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,898" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Carrier Bookings'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="d14b027c-5c3a-4c56-9ffd-b7a3c3f39b81" Text="[CurrentRow.ByIndex(0)]" Version="V1">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://core.flexport.com/fulfillment" DesignTimeRectangle="78, 142, 103, 15" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' aaname='' /&gt;" Guid="ab9b909e-0b28-40a8-9dfa-47a461855d9a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGsAAAATCAYAAACXzvOgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADpSURBVGhD7di/CsIwEMfxvqqrL+CzODmJIi4VnBScHEUoDiKI4h8UdRDSIric3plCA7Wgw5HA7wNHUjJ+SYdEBMFArIBEq70hnu0pkxXjzxyuD7qbp01VuFl8CP45voPlEMtzxS6I5bmfYp0vN4qHY1lBnxPLmFQ2ZbE4ULPVoWSxlBXB9Dmxuv1YNmWx2r1YQjEOxd+gy4k1myeyqbpZn1ADGk2m9gS0OLGqfoMsv1EcqlZv0HqzsyegwYll16+xijhUmmb2CzT8HQv0IVZAECsgiBUQfszN4dXd4+FH3NJXd/AfYgWD6AVXTE7eH4NATQAAAABJRU5ErkJggg==" InformativeScreenshot="e11499281d24927c1fdd1b1cb83ff815.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Ocean FCL - Assign Carrier Ops to Shipment (72)' /&gt;" SearchSteps="FuzzySelector, Image">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="156, 117, 51, 10" ElementType="Text" FriendlyName="'Carrier Bookings'" FullSelectorArgument="&lt;webctrl aaname='Carrier Bookings' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Carrier Bookings' tag='SPAN' type='' check:text='Carrier Bookings' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAOCAYAAACLroQjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAImSURBVEhL7ZS/ixpBFMf9U0Oaq8JVwU6uOLlG9opjsHBJIYNwMBZhLYSRHMw1slscrBDQQljBYlNtYbEg8s13dka9GBVCIKDkCwvz5sd77/PmzdbW6zWu9attNhtc61fDFes/3L9WufKDv9Q7uAJxJ0DQFhAPEaZ+9pzyV4PMj08rh7qrQzw20eymKP3sacUIWrEfE3RiEBfe+EPt4IqBgFp4o1KBtC8RPsccAdlQw7woxIsY+sVADbNqzsIVbxFkV2PKiheJ26fnlROKcH2bbAnTUdX+cqGhOhLqzWX9q+3h1hnMaIof9GfhbKw4kRDPvkCrKaKuhH7lPGNtfZilXXTawcWtgG4PtLaVCyETu16Htu2yVGh8cfdanZkz4MiGmxIiRd5vIJxVy16E+/wBt5/48VxZGoRdd74q6PzAXhLuQSF6YiEYP+8HnHsXf8zOmthCSdddM5tfgehR/tZFO7isJ9zhrZYRREcjHbOiFZyHJ1zQz6st1Vwi0OgZGLaomRW7ZPba3pxLNEoVxND3Gc+Kbwf2hHAfbxjDpbqH8/ETPp2EPrvG3SDzsfmhyKDbTUiCb7V/c6sU4T0djQyvm+32PUSDcLpzC3EOruS5lmsPzQoehbNv7ilA/T6ilSO64x7ul+2I1T60XVuWtmhfuXoUjl4HAcSArdi6YX78XwwjGO4V42Nwl6qJ5G358YEuFq5IFGSPT2aUnfwDX/7NndEVwwE/AQKjb0jokzZDAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                            </uix:NTypeInto>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d14b027c-5c3a-4c56-9ffd-b7a3c3f39b81" Version="V1">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://core.flexport.com/fulfillment" DesignTimeRectangle="190, 144, 22, 10" ElementType="Text" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl aaname='Search' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Search' tag='DIV' type='' check:text='Search' /&gt;" Guid="0ca131f8-52f9-43e0-b5f3-9d8aad3b118a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABoAAAAOCAYAAAAxDQxDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAE5SURBVDhP7ZA9a8JQFIb7K/0R4uwqdLH/oC6CdCxVKIK4ZNEiZKiU6hIoBDGBKEj8iMn1xvj0RKmUGmiRtpPDC5d7Pp7zvle5vMt/6AI6W78MmlKuzShm1I6ga2NDkAAifzg/afyZ1jjEGBm1I8jwQI9WFPIexRuPXGlO29LYVkC15FJpR1hujGXO5eIlphvRNSOMmke1o7BdTb+lBLSlb25w3sL93Amo0FD4qSMljQ2P5miHHod0xzsCa0GluaLeinB0wuA+vRwmcsTds0brLebjkrrscCQSqx1gK3CeskAlcSEZpwC89cGhH+OIC+dFMVglOEMBKQE9fIqoF8M0lCTSPR//CwahgHoZIMOVxUpcJDtpmFGWBVqu98Wm3VnuB4NFIvUvoFt568Ps5FUi+w7017qAzpTLO0bgFf3NG1aHAAAAAElFTkSuQmCC" InformativeScreenshot="f39e6a2474228377f53c602a10565ade.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Ocean FCL - Assign Carrier Ops to Shipment (72)' /&gt;" SearchSteps="FuzzySelector, Image">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="156, 117, 51, 10" ElementType="Text" FriendlyName="'Carrier Bookings'" FullSelectorArgument="&lt;webctrl aaname='Carrier Bookings' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Carrier Bookings' tag='SPAN' type='' check:text='Carrier Bookings' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAOCAYAAACLroQjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAImSURBVEhL7ZS/ixpBFMf9U0Oaq8JVwU6uOLlG9opjsHBJIYNwMBZhLYSRHMw1slscrBDQQljBYlNtYbEg8s13dka9GBVCIKDkCwvz5sd77/PmzdbW6zWu9attNhtc61fDFes/3L9WufKDv9Q7uAJxJ0DQFhAPEaZ+9pzyV4PMj08rh7qrQzw20eymKP3sacUIWrEfE3RiEBfe+EPt4IqBgFp4o1KBtC8RPsccAdlQw7woxIsY+sVADbNqzsIVbxFkV2PKiheJ26fnlROKcH2bbAnTUdX+cqGhOhLqzWX9q+3h1hnMaIof9GfhbKw4kRDPvkCrKaKuhH7lPGNtfZilXXTawcWtgG4PtLaVCyETu16Htu2yVGh8cfdanZkz4MiGmxIiRd5vIJxVy16E+/wBt5/48VxZGoRdd74q6PzAXhLuQSF6YiEYP+8HnHsXf8zOmthCSdddM5tfgehR/tZFO7isJ9zhrZYRREcjHbOiFZyHJ1zQz6st1Vwi0OgZGLaomRW7ZPba3pxLNEoVxND3Gc+Kbwf2hHAfbxjDpbqH8/ETPp2EPrvG3SDzsfmhyKDbTUiCb7V/c6sU4T0djQyvm+32PUSDcLpzC3EOruS5lmsPzQoehbNv7ilA/T6ilSO64x7ul+2I1T60XVuWtmhfuXoUjl4HAcSArdi6YX78XwwjGO4V42Nwl6qJ5G358YEuFq5IFGSPT2aUnfwDX/7NndEVwwE/AQKjb0jokzZDAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Pending Carrier'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d14b027c-5c3a-4c56-9ffd-b7a3c3f39b81" Version="V1">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://core.flexport.com/fulfillment" DesignTimeRectangle="1204, 465, 310, 72" FriendlyName="'Pending Carrier'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableCol='8' tag='TD' /&gt;" FuzzyAccuracy="0.79" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' aaname='Pending Carrier Acknowledgement' /&gt;" Guid="d901b7c1-6d64-4452-a096-ef3d06e09940" ImageBase64="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" InformativeScreenshot="2192573e54a7fda1073e1784e411ec01.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='FCL Fulfillment (54)' /&gt;" SearchSteps="FuzzySelector, Image">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="406, 256, 76, 34" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl aaname='Search' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Search' tag='BUTTON' type='button' check:text='Search' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFAAAAAmCAYAAABTahxxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAGhSURBVGhD7ZVBboMwEEV7yh6ix2LNFbLNqjtW7KmUbSKIIkWRmzG2GTw2FIZKRPlfelICDAyPMXwU5cWA9UCgEghUEgR+fv2ABUCgEghUAoFKIFAJBCqBQCUQqAQClUCgEghU8h4Cy5tpTZ/mmNivYFuBrFGerZtezCsILOqHa1EGAmfpTOMaNNebKdg+EguBs+QFxohJPXXD/uQr4G4OoX64Tlt3prr2vwcprA+Xtj4LgYeT+0Ph11/BRgKjpiiJxsQxPv7Y491tiOMlSkEUKzApXwpMRTOVmwkkkoK8nNQyCtv4lDFEDRfIa85hGuOJrWKBfoWwbVZyqFnGpgI9sUjbYHa6KA9TlVSbnjCKEDia8GF7Ukbq4WXPtYx/EWiJnvr3xFea0hz5FDmhExM4EjU3TfsXSM1Ey5ALpAbZBA43wfE35KfxiajJCFywhHcsMJ++aX6T4/Qy/nKOnMAnmVeEPW7/AnNfWPlxSB0XZPCppVpx4xMCRX0fW/cKAt8VCFQCgUogUAkEKoFAJRCoBAKVQKASCFQCgUqEQLCGi/kFNcrmjHwRwm8AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NClick.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NClick>
+                            <uix:NSelectItem DisplayName="Select Item 'Update Booking'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Cancelled" ScopeIdentifier="d14b027c-5c3a-4c56-9ffd-b7a3c3f39b81" Version="V1">
+                              <uix:NSelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="8">
+                                  <x:String>Select booking status</x:String>
+                                  <x:String>Pending</x:String>
+                                  <x:String>Confirmed</x:String>
+                                  <x:String>Declined</x:String>
+                                  <x:String>Cancelled</x:String>
+                                  <x:String>Unbooked</x:String>
+                                  <x:String>Error</x:String>
+                                  <x:String>Revising</x:String>
+                                </scg:List>
+                              </uix:NSelectItem.Items>
+                              <uix:NSelectItem.Target>
+                                <uix:TargetAnchorable BrowserURL="https://core.flexport.com/fulfillment" DesignTimeRectangle="1748, 526, 153, 15" ElementType="DropDown" FriendlyName="'Cancelled'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span&amp;gt;select' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='SELECT' aaname='' /&gt;" Guid="138d9850-8aea-4369-b7a7-bbd6310edb19" InformativeScreenshot="babdda5244474f1ec9f2356db137ce86.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Ocean FCL - Assign Carrier Ops to Shipment (72)' /&gt;" SearchSteps="FuzzySelector">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                      <uix:Target DesignTimeRectangle="1748, 513, 101, 10" ElementType="Text" FriendlyName="'Update Booking'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='P' aaname='Update Booking Status Manually' check:text='Update Booking Status Manually' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGkAAAAOCAYAAAAsczLYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAPnSURBVFhH7ZfJUxNREMb9k71ZXjzpCU+KWkCJWqyyQ1hD2JdoWJIYSAKEfVUggSQEUKl2fk29cYAxWpaHxMqha968pfvr7+t+k9w7v7ySkhW2lUQqAiuJVARWEqkI7K9Eyl18l9PMhevav7TUaU5jMeZpxv+TnaTPJX12qbm6rWO2SL2DkxJb2dBxKLJsj93s4DAlI5OzN+ayuW8SW96QdPbyxryxVDonzytr5FlFjbR0Dep+t31Oq2vu1liMeYYXV+7s+ZXFVzblRVWdVL5rlvXtA1dsv8PsNPA/La+WxMauvp9mL6S8ojYvT39i8B4ILmqubutYXpEmPgRleDwgbd0+VRxj3NTeL4OjH2T34Fid+2cjEl1al/sPn6gf9vV6J8Q3+lEyua/qkyRZg5hWj0+SJ2cag/OBYFS75PA4rQL2eMfVB2t7n5MyPfNJSQ9GltTA1NLpleOTrI2JWJFowk4MfJs7n3WMEAbb8uq21Lz3yEJs9cY8fhFrbXNfdvYPbWy8G/xv6tqk3zd17dNaf/z0lT6dPBylMooFTPPhuGIkFmeIcZTKKjftPcPXPFmxjUhzoZgcJTMaayYU1TNYXpHe1ndoohhJQ57zHQEI5Okf07naJo8GMPsgzRDHfNmz1/LgUZk0tvbKhrXOOcQZskiPLq2pQAiVWN+V/qEpJbPB2quEWnjAyBmShWC6+TYmk8+xlWx1bZt09o4ocQZbxrpaIA4S6U4zj2+e5A7meos0CDX+TF5dfaN6zjvs10IBl5OHpdUtqbK6lzgUM51nbh1iJE/PtBgQARGdIi3G17QgwwvLumZi2yKxSOKM58IxDc5BAGEk1WGpD3DeCewd8StYgDtFqnnfpYTRiftfkurTEMG4zzcpo9Z5jHc6yT8X0aRJwMTjquJKgVQjEsbYvN/GhD+njfuDWuFgY1+LZ1CmAuG8IuGbtXcNncoFfsyeeGJLmjsHNJbB4uQBkeCNMzx5d4q0EF/VwhuZmNFiY86IRAx8MEfOJgdbpJ39IyWEaoAcDlS8adJqwClgIJMxHcY+wFKpfGdIig6hAsw+2n5r94v6xx/fJL4TL1836P7Kt02aYH1Lj4LiGqCbiMn1BnC6iMoMWdUFeEOMEek2JpMPVU8xEIMrDmwz1l66q3tgXF5VNyomg3lo7PqKKq+ss2Im9B0sFK/BTzyua4TlijNYnDzcFml779ASu0Nzwzd4wUpOjK9z+PlNAnNzx4CdB2aL5GYchEy3tUIx8wOEK3Jsev7OerEZXUcuzrm8Ik1+DN1ou0I0frDQSVQg3wW3PcVi/HoNzC/e+auRV6SSFYaVRCp4u5IfBQWgGrfBNdoAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                      <uix:Target DesignTimeRectangle="1760, 373, 20, 10" ElementType="Button" FriendlyName="'Select'" FullSelectorArgument="&lt;webctrl aaname='Select' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select' tag='BUTTON' type='button' check:text='Select' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAOCAYAAAA1+Nx+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAF1SURBVDhP7ZHLLwNRFMb9lVasWDUoQYl6lqCKaIR6FAkSj8TCRiohGu+kpIlQ2qJNUPPoTEsfM5O2+fQeUZ1EsNCdxZebOffM9zvfPWWKlkMp9Q/4Ub8CJFJZiHIGafXr++9EAPkli+EZCRXGCIzdPLhoRtd0FVDQNy5SX3G9WAzuuVAQCKu6OgGYQU0Hj2BYo2lTSg6XfgXOlRidHwApnsXReRrz63GEHjUCbrhe6fvEm0a16RnWqSik2OeABGCmE4syKusjmFuLw3+vorlfwNZeEq1WkUwZgJ0tgwI2dxKw2EVMLsmwTUu4uVMJyO6295M0oA7ACiwii1fXxVNTbSePUacEx7KMw7N3wO5xCoZ2DvYFGc7VGKyOKNynKTJiacw2EQeedMG8ALi+VWEwcxSxZ0zEA6fRhKYBASOzErw+lQCBkIamfLK2IZGej5lX5f9psPDwBVXaY2OvoNshAUopArjcCZQbnv5MbIc6QClVYkAOb6Do1WfL9gMbAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NSelectItem.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NSelectItem>
+                          </Sequence>
+                        </ActivityAction>
+                      </ueab:ExcelForEachRowX.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ueab:ExcelForEachRowX>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="bc41d8a24891e6510bdbedd01fdf8697.png" Selector="&lt;html app='chrome.exe' title='Ocean FCL - Assign Carrier Ops to Shipment (72)'/&gt;" Url="https://core.flexport.com/fulfillment" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </ueab:ExcelApplicationCard.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ueab:ExcelApplicationCard>
+  </ueab:SequenceX>
+</Activity>

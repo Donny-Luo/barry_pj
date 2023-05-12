@@ -1,0 +1,580 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ses="clr-namespace:Symphony.Extensions.SyForms;assembly=Symphony.Extensions.SyForms" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:swf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="FormControls" Type="InArgument(scg:Dictionary(x:String, swf:Control))" />
+    <x:Property Name="CallerForm" Type="InArgument(ses:CustomForm)" />
+    <x:Property Name="FormData" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>654,912</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Forms.Layout</x:String>
+      <x:String>Symphony.Extensions.SyForms</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security.Cryptography.X509Certificates</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>Symphony.Extensions.SyForms</AssemblyReference>
+      <AssemblyReference>System.Security</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <StateMachine InitialState="{x:Reference __ReferenceID2}" sap2010:Annotation.AnnotationText="Basic Wizard forms designed with SyForms package extensions. (Symphony.Activities.Extension.SyForms).&#xA;https://gallery.uipath.com/packages/Symphony.Activities.Extension.SyForms&#xA;&#xA;Every Step is calling one state of this state machine.  you can execute several workflows step by step and display status, gridviews or any other control to the end user.&#xA;&#xA;Developed by Frederic Ledesma (frederic.ledesma@hotmail.com)" DisplayName="Main" sap:VirtualizedContainerService.HintSize="614,832" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">240,2.5</av:Point>
+        <x:Double x:Key="StateContainerWidth">600</x:Double>
+        <x:Double x:Key="StateContainerHeight">678.54</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">270,77.5 270,129.5</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <State x:Name="__ReferenceID2" DisplayName="Welcome" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_5">
+      <State.Entry>
+        <Sequence sap:VirtualizedContainerService.HintSize="358,244" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ses:ShowForm Form="{x:Null}" AlwaysOnTop="True" CanResize="True" DisplayName="Show Welcome Form Wizard" FormFilePath="WelcomeForm.json" sap:VirtualizedContainerService.HintSize="336,120" sap2010:WorkflowViewState.IdRef="ShowForm_1">
+            <ses:ShowForm.Controls>
+              <OutArgument x:TypeArguments="swf:Control" x:Key="lblStep">[wizardStep]</OutArgument>
+            </ses:ShowForm.Controls>
+            <ses:ShowForm.Data>
+              <scg:Dictionary x:TypeArguments="x:String, InOutArgument" />
+            </ses:ShowForm.Data>
+          </ses:ShowForm>
+        </Sequence>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">213,129.5</av:Point>
+          <av:Size x:Key="ShapeSize">114,61</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <State.Transitions>
+        <Transition DisplayName="Next" sap2010:WorkflowViewState.IdRef="Transition_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">270,190.5 270,240.5</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.Condition>[wizardStep.Text.Equals("1")]</Transition.Condition>
+          <Transition.To>
+            <State x:Name="__ReferenceID1" DisplayName="Mail Provider" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_4">
+              <State.Entry>
+                <Sequence DisplayName="Select a mail provider" sap:VirtualizedContainerService.HintSize="436,1300" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Name="MailServerSettingList" />
+                    <Variable x:TypeArguments="swf:Control" Name="ControlMailProviderList" />
+                    <Variable x:TypeArguments="swf:DataGridView" Name="dgvMailProviderList" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Get List of Mail Servers in Excel" sap:VirtualizedContainerService.HintSize="414,292" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" WorkbookPath="Settings\IMAP_SMTP_Severs.xlsx">
+                    <ui:ExcelApplicationScope.Body>
+                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,183" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ExcelReadRange AddHeaders="True" DataTable="[MailServerSettingList]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                            <ui:ExcelReadRange.Range>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:ExcelReadRange.Range>
+                          </ui:ExcelReadRange>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ExcelApplicationScope.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ExcelApplicationScope>
+                  <ses:ShowForm Form="{x:Null}" AlwaysOnTop="True" CanResize="True" DisplayName="Show form" FormFilePath="Step1Form.json" sap:VirtualizedContainerService.HintSize="414,120" sap2010:WorkflowViewState.IdRef="ShowForm_2">
+                    <ses:ShowForm.Controls>
+                      <OutArgument x:TypeArguments="swf:Control" x:Key="lblStep">[wizardStep]</OutArgument>
+                      <OutArgument x:TypeArguments="swf:Control" x:Key="dgvMailProvider">[ControlMailProviderList]</OutArgument>
+                    </ses:ShowForm.Controls>
+                    <ses:ShowForm.Data>
+                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="DataMailProvider">[MailServerSettingList]</InOutArgument>
+                    </ses:ShowForm.Data>
+                  </ses:ShowForm>
+                  <Sequence DisplayName="Assign Mail Server value to variables" sap:VirtualizedContainerService.HintSize="414,684" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Cast to datagridview from control" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="swf:DataGridView">[dgvMailProviderList]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="swf:DataGridView">[CType(ControlMailProviderList, DataGridView)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Selected Provider" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Provider]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[dgvMailProviderList.CurrentRow.Cells(0).Value.ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Selected Server SMTP" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[ServerSMTP]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[dgvMailProviderList.CurrentRow.Cells(1).Value.ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Selected SMTP Port" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[PortSMTP]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(dgvMailProviderList.CurrentRow.Cells(2).Value)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Selected Server IMAP" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[ServerIMAP]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[dgvMailProviderList.CurrentRow.Cells(3).Value.ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="Selected IMAP Port" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[PortIMAP]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(dgvMailProviderList.CurrentRow.Cells(4).Value)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </Sequence>
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">213,240.5</av:Point>
+                  <av:Size x:Key="ShapeSize">114,61</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="Next" sap2010:WorkflowViewState.IdRef="Transition_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">270,301.5 270,351.5</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.Condition>[wizardStep.Text.Equals("2")]</Transition.Condition>
+                  <Transition.To>
+                    <State x:Name="__ReferenceID0" DisplayName="Credentials" sap:VirtualizedContainerService.HintSize="384,1255" sap2010:WorkflowViewState.IdRef="State_3">
+                      <State.Entry>
+                        <Sequence DisplayName="Selected Email Provider settings" sap:VirtualizedContainerService.HintSize="358,868" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="swf:Control" Name="txbProvider" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbSMTPServer" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbSMTPPort" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbIMAPServer" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbIMAPPort" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbIEmail" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbIPassword" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbMailFolder" />
+                            <Variable x:TypeArguments="swf:Control" Name="txbFilter" />
+                            <Variable x:TypeArguments="swf:Control" Name="cbSubjectOnly" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ses:ShowForm Form="{x:Null}" AlwaysOnTop="True" CanResize="True" DisplayName="Show form" FormFilePath="Step2Form.json" sap:VirtualizedContainerService.HintSize="336,120" sap2010:WorkflowViewState.IdRef="ShowForm_3">
+                            <ses:ShowForm.Controls>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="lblStep">[wizardStep]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbProvider">[txbProvider]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbSMTPServer">[txbSMTPServer]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbSMTPPort">[txbSMTPPort]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbIMAPServer">[txbIMAPServer]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbIMAPPort">[txbIMAPPort]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbIEmail">[txbIEmail]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbIPassword">[txbIPassword]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbFilter">[txbFilter]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="txbMailFolder">[txbMailFolder]</OutArgument>
+                              <OutArgument x:TypeArguments="swf:Control" x:Key="cbSubjectOnly">[cbSubjectOnly]</OutArgument>
+                            </ses:ShowForm.Controls>
+                            <ses:ShowForm.Data>
+                              <InOutArgument x:TypeArguments="x:String" x:Key="Provider">[Provider]</InOutArgument>
+                              <InOutArgument x:TypeArguments="x:String" x:Key="ServerSMTP">[ServerSMTP]</InOutArgument>
+                              <InOutArgument x:TypeArguments="x:Int32" x:Key="PortSMTP">[PortSMTP]</InOutArgument>
+                              <InOutArgument x:TypeArguments="x:String" x:Key="ServerIMAP">[ServerIMAP]</InOutArgument>
+                              <InOutArgument x:TypeArguments="x:Int32" x:Key="PortIMAP">[PortIMAP]</InOutArgument>
+                            </ses:ShowForm.Data>
+                          </ses:ShowForm>
+                          <Sequence DisplayName="Email Settings" sap:VirtualizedContainerService.HintSize="336,584" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Mail Folder" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[MailFolder]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[txbMailFolder.Text]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Logon" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[emailLogon]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[txbIEmail.Text]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Password" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[emailPassword]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[txbIPassword.Text]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="flag is subject only" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Boolean">[isSubjectOnly]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Boolean">[CType(cbSubjectOnly,CheckBox).Checked]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="flag is subject only" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[filter]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[txbFilter.Text]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </Sequence>
+                      </State.Entry>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">213,351.5</av:Point>
+                          <av:Size x:Key="ShapeSize">114,61</av:Size>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <State.Transitions>
+                        <Transition DisplayName="Next" sap2010:WorkflowViewState.IdRef="Transition_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:PointCollection x:Key="ConnectorLocation">270,412.5 270,462.5</av:PointCollection>
+                              <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                              <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Transition.Condition>[wizardStep.Text.Equals("3")]</Transition.Condition>
+                          <Transition.To>
+                            <State x:Name="__ReferenceID3" DisplayName="Options" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_2">
+                              <State.Entry>
+                                <Sequence DisplayName="Extraction Settings" sap:VirtualizedContainerService.HintSize="358,968" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="swf:Control" Name="nudTop" />
+                                    <Variable x:TypeArguments="swf:Control" Name="cbMarkAsRead" />
+                                    <Variable x:TypeArguments="swf:Control" Name="cbOnlyUnreadMessage" />
+                                    <Variable x:TypeArguments="swf:Control" Name="cbCreateFolderByEmail" />
+                                    <Variable x:TypeArguments="swf:Control" Name="cbExtractEmail" />
+                                    <Variable x:TypeArguments="ui:GetIMAPMailMessages" Name="IMAPMailMessages" />
+                                    <Variable x:TypeArguments="swf:Control" Name="txbMoveToMailFolder" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ses:ShowForm Form="{x:Null}" AlwaysOnTop="True" CanResize="True" DisplayName="Show form" FormFilePath="Step3Form.json" sap:VirtualizedContainerService.HintSize="336,120" sap2010:WorkflowViewState.IdRef="ShowForm_4">
+                                    <ses:ShowForm.Controls>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="lblStep">[wizardStep]</OutArgument>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="nudTop">[nudTop]</OutArgument>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="cbMarkAsRead">[cbMarkAsRead]</OutArgument>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="cbOnlyUnreadMessage">[cbOnlyUnreadMessage]</OutArgument>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="cbCreateFolderByEmail">[cbCreateFolderByEmail]</OutArgument>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="cbExtractEmail">[cbExtractEmail]</OutArgument>
+                                      <OutArgument x:TypeArguments="swf:Control" x:Key="txbMoveToMailFolder">[txbMoveToMailFolder]</OutArgument>
+                                    </ses:ShowForm.Controls>
+                                    <ses:ShowForm.Data>
+                                      <scg:Dictionary x:TypeArguments="x:String, InOutArgument" />
+                                    </ses:ShowForm.Data>
+                                  </ses:ShowForm>
+                                  <Sequence DisplayName="Assign Extraction Option Variable" sap:VirtualizedContainerService.HintSize="336,684" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign DisplayName="top" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[top]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(nudTop.Text)]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="markAsRead" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[markAsRead]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">[CType(cbMarkAsRead,CheckBox).Checked]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="onlyUnreadMessage" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[onlyUnreadMessage]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">[CType(cbOnlyUnreadMessage,CheckBox).Checked]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="extractEmail" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[extractEmail]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">[CType(cbExtractEmail,CheckBox).Checked]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="createFolderByEmail" sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[createFolderByEmail]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">[CType(cbCreateFolderByEmail,CheckBox).Checked]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[moveToMailFolder]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[txbMoveToMailFolder.Text]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </Sequence>
+                              </State.Entry>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">213,462.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">114,61</av:Size>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <State.Transitions>
+                                <Transition DisplayName="Finish" sap2010:WorkflowViewState.IdRef="Transition_1">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:PointCollection x:Key="ConnectorLocation">270,523.5 270,573.5</av:PointCollection>
+                                      <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                                      <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Transition.Condition>[wizardStep.Text.Equals("4")]</Transition.Condition>
+                                  <Transition.To>
+                                    <State x:Name="__ReferenceID4" DisplayName="Extract" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                                      <State.Entry>
+                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExtractEmailAttachments workflow" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ExtractEmailAttachments.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:Boolean" x:Key="markAsRead">[markAsRead]</InArgument>
+                                            <InArgument x:TypeArguments="x:Boolean" x:Key="onlyUnreadMessage">[onlyUnreadMessage]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="MailFolder">[MailFolder]</InArgument>
+                                            <InArgument x:TypeArguments="x:Int32" x:Key="PortIMAP">[PortIMAP]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="IMAPServer">[ServerIMAP]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="email">[emailLogon]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="password">[emailPassword]</InArgument>
+                                            <InArgument x:TypeArguments="x:Int32" x:Key="top">[top]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="moveToMailFolder">[moveToMailFolder]</InArgument>
+                                            <InArgument x:TypeArguments="x:Boolean" x:Key="extractEmail">[extractEmail]</InArgument>
+                                            <InArgument x:TypeArguments="x:Boolean" x:Key="createFolderByMail">[createFolderByEmail]</InArgument>
+                                            <InArgument x:TypeArguments="x:Boolean" x:Key="isSubjectOnly">[isSubjectOnly]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="filter">[filter]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                      </State.Entry>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">213,573.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">114,61</av:Size>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </State>
+                                  </Transition.To>
+                                </Transition>
+                                <Transition DisplayName="Back" sap2010:WorkflowViewState.IdRef="Transition_6">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:PointCollection x:Key="ConnectorLocation">327,499.1 357,499.1 357,397.25 327,397.25</av:PointCollection>
+                                      <x:Int32 x:Key="SrcConnectionPointIndex">44</x:Int32>
+                                      <x:Int32 x:Key="DestConnectionPointIndex">56</x:Int32>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Transition.To>
+                                    <x:Reference>__ReferenceID0</x:Reference>
+                                  </Transition.To>
+                                  <Transition.Condition>[wizardStep.Text.Equals("2")]</Transition.Condition>
+                                </Transition>
+                              </State.Transitions>
+                            </State>
+                          </Transition.To>
+                        </Transition>
+                        <Transition DisplayName="Back" sap2010:WorkflowViewState.IdRef="Transition_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:PointCollection x:Key="ConnectorLocation">327,375.9 357,375.9 357,289.3 327,289.3</av:PointCollection>
+                              <x:Int32 x:Key="SrcConnectionPointIndex">28</x:Int32>
+                              <x:Int32 x:Key="DestConnectionPointIndex">60</x:Int32>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Transition.To>
+                            <x:Reference>__ReferenceID1</x:Reference>
+                          </Transition.To>
+                          <Transition.Condition>[wizardStep.Text.Equals("1")]</Transition.Condition>
+                        </Transition>
+                      </State.Transitions>
+                    </State>
+                  </Transition.To>
+                </Transition>
+                <Transition DisplayName="Back" sap2010:WorkflowViewState.IdRef="Transition_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">327,274.05 357,274.05 357,163.05 327,163.05</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">40</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <x:Reference>__ReferenceID2</x:Reference>
+                  </Transition.To>
+                  <Transition.Condition>[wizardStep.Text.Equals("0")]</Transition.Condition>
+                </Transition>
+              </State.Transitions>
+            </State>
+          </Transition.To>
+        </Transition>
+      </State.Transitions>
+    </State>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <StateMachine.Variables>
+      <Variable x:TypeArguments="swf:Control" Name="wizardStep" />
+      <Variable x:TypeArguments="x:Int32" Name="PortIMAP" />
+      <Variable x:TypeArguments="x:String" Name="emailLogon" />
+      <Variable x:TypeArguments="x:String" Name="ServerIMAP" />
+      <Variable x:TypeArguments="x:String" Name="emailPassword" />
+      <Variable x:TypeArguments="x:Int32" Name="PortSMTP" />
+      <Variable x:TypeArguments="x:String" Name="ServerSMTP" />
+      <Variable x:TypeArguments="x:String" Name="Provider" />
+      <Variable x:TypeArguments="x:String" Name="MailFolder" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="messages" />
+      <Variable x:TypeArguments="x:Boolean" Name="isSubjectOnly" />
+      <Variable x:TypeArguments="x:String" Name="filter" />
+      <Variable x:TypeArguments="x:Boolean" Name="markAsRead" />
+      <Variable x:TypeArguments="x:Boolean" Name="onlyUnreadMessage" />
+      <Variable x:TypeArguments="x:String" Name="moveToMailFolder" />
+      <Variable x:TypeArguments="x:Boolean" Name="extractEmail" />
+      <Variable x:TypeArguments="x:Boolean" Name="createFolderByEmail" />
+      <Variable x:TypeArguments="x:Int32" Name="top" />
+    </StateMachine.Variables>
+  </StateMachine>
+</Activity>

@@ -1,0 +1,492 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractEmailAttachments" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="markAsRead" Type="InArgument(x:Boolean)" />
+    <x:Property Name="onlyUnreadMessage" Type="InArgument(x:Boolean)" />
+    <x:Property Name="MailFolder" Type="InArgument(x:String)" />
+    <x:Property Name="PortIMAP" Type="InArgument(x:Int32)" />
+    <x:Property Name="IMAPServer" Type="InArgument(x:String)" />
+    <x:Property Name="email" Type="InArgument(x:String)" />
+    <x:Property Name="password" Type="InArgument(x:String)" />
+    <x:Property Name="top" Type="InArgument(x:Int32)" />
+    <x:Property Name="moveToMailFolder" Type="InArgument(x:String)" />
+    <x:Property Name="extractEmail" Type="InArgument(x:Boolean)" />
+    <x:Property Name="createFolderByMail" Type="InArgument(x:Boolean)" />
+    <x:Property Name="isSubjectOnly" Type="InArgument(x:Boolean)" />
+    <x:Property Name="filter" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1004,716</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <StateMachine InitialState="{x:Reference __ReferenceID5}" DisplayName="ExtractEmailAttachments" sap:VirtualizedContainerService.HintSize="964,636" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">10,192.5</av:Point>
+        <x:Double x:Key="StateContainerWidth">950</x:Double>
+        <x:Double x:Key="StateContainerHeight">600</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">70,230 173,230</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <State x:Name="__ReferenceID5" DisplayName="Settings" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_5">
+      <State.Entry>
+        <Sequence sap:VirtualizedContainerService.HintSize="1287,876" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="1265,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign.To>
+              <OutArgument x:TypeArguments="str:Regex">[illegalInFileName]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="str:Regex">[New Regex("[\\/:*?""&lt;&gt;|]")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If Condition="[markAsRead.Equals(False) And onlyUnreadMessage.Equals(False)]" sap:VirtualizedContainerService.HintSize="1265,652" sap2010:WorkflowViewState.IdRef="If_4">
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[initialState]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <If Condition="[markAsRead And onlyUnreadMessage.Equals(False)]" sap:VirtualizedContainerService.HintSize="998,504" sap2010:WorkflowViewState.IdRef="If_3">
+                <If.Then>
+                  <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[initialState]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </If.Then>
+                <If.Else>
+                  <If Condition="[markAsRead.Equals(False) And onlyUnreadMessage]" sap:VirtualizedContainerService.HintSize="731,356" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[initialState]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">2</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[markAsRead And onlyUnreadMessage]" sap:VirtualizedContainerService.HintSize="464,208" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[initialState]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">3</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                      </If>
+                    </If.Else>
+                  </If>
+                </If.Else>
+              </If>
+            </If.Else>
+          </If>
+        </Sequence>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">173,199.5</av:Point>
+          <av:Size x:Key="ShapeSize">114,61</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <State.Transitions>
+        <Transition DisplayName="Mark+Unread" sap2010:WorkflowViewState.IdRef="Transition_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">230,260.5 230,383.05 403,383.05</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">41</x:Int32>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.Condition>[initialState=3]</Transition.Condition>
+          <Transition.To>
+            <State x:Name="__ReferenceID3" DisplayName="Mark+Unread" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_1">
+              <State.Entry>
+                <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[email]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" MailFolder="[MailFolder]" MarkAsRead="True" Messages="[messages]" OnlyUnreadMessages="True" Password="[password]" Port="[PortIMAP]" SecureConnection="Auto" Server="[IMAPServer]" Top="[top]" />
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">403,349.5</av:Point>
+                  <av:Size x:Key="ShapeSize">114,61</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="" sap2010:WorkflowViewState.IdRef="Transition_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">517,383.05 667,383.05 667,263.5</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">40</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">39</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <State x:Name="__ReferenceID0" DisplayName="Extract" sap:VirtualizedContainerService.HintSize="1208,2110" sap2010:WorkflowViewState.IdRef="State_6" IsFinal="True">
+                      <State.Entry>
+                        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1182,1997" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[messages]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="snm:MailMessage">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1166,1863" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:Boolean" Name="SelectCurrentMail" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[isSubjectOnly]" DisplayName="If Subject only is true" sap:VirtualizedContainerService.HintSize="1144,356" sap2010:WorkflowViewState.IdRef="If_7">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <If Condition="[mail.Subject.ToLower.Contains(filter)]" sap:VirtualizedContainerService.HintSize="509,208" sap2010:WorkflowViewState.IdRef="If_5">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[SelectCurrentMail]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[SelectCurrentMail]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Else>
+                                    </If>
+                                  </If.Then>
+                                  <If.Else>
+                                    <If Condition="[mail.Subject.ToLower.Contains(filter) OrElse mail.Body.ToLower.Contains(filter)]" sap:VirtualizedContainerService.HintSize="509,208" sap2010:WorkflowViewState.IdRef="If_6">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[SelectCurrentMail]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[SelectCurrentMail]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </If.Else>
+                                    </If>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[SelectCurrentMail]" sap:VirtualizedContainerService.HintSize="1144,1343" sap2010:WorkflowViewState.IdRef="If_12">
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="1019,1195" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="newDirectory" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If Condition="[moveToMailFolder &lt;&gt; String.Empty]" sap:VirtualizedContainerService.HintSize="997,235" sap2010:WorkflowViewState.IdRef="If_8">
+                                        <If.Then>
+                                          <ui:MoveIMAPMailMessageToFolder DisplayName="Move IMAP Mail Message" Email="[email]" EnableSSL="True" FromFolder="[MailFolder]" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="MoveIMAPMailMessageToFolder_1" MailFolder="[moveToMailFolder]" MailMessage="[mail]" Password="[password]" Port="[PortIMAP]" SecureConnection="Auto" Server="[IMAPServer]" />
+                                        </If.Then>
+                                      </If>
+                                      <If Condition="[createFolderByMail]" sap:VirtualizedContainerService.HintSize="997,796" sap2010:WorkflowViewState.IdRef="If_11">
+                                        <If.Then>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="486,648" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="464,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[newDirectory]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">[Environment.CurrentDirectory+"\"+ ExtractedEmailPath+"\"+ illegalInFileName.Replace(mail.Subject,String.Empty)]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap:VirtualizedContainerService.HintSize="464,22" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[newDirectory]" />
+                                            <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[newDirectory]" sap:VirtualizedContainerService.HintSize="464,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[mail]" />
+                                            <If Condition="[extractEmail]" sap:VirtualizedContainerService.HintSize="464,235" sap2010:WorkflowViewState.IdRef="If_9">
+                                              <If.Then>
+                                                <ui:SaveMail DisplayName="Save Mail Message" FilePath="[newDirectory+&quot;\&quot;+illegalInFileName.Replace(mail.Subject,String.Empty)+&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="SaveMail_1" MailMessage="[mail]" />
+                                              </If.Then>
+                                            </If>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="486,486" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[ExtractedEmailPath]" sap:VirtualizedContainerService.HintSize="464,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[mail]" />
+                                            <If Condition="[extractEmail]" sap:VirtualizedContainerService.HintSize="464,235" sap2010:WorkflowViewState.IdRef="If_10">
+                                              <If.Then>
+                                                <ui:SaveMail DisplayName="Save Mail Message" FilePath="[ExtractedEmailPath+&quot;\&quot;+illegalInFileName.Replace(mail.Subject,String.Empty)+&quot;.eml&quot;]" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="SaveMail_2" MailMessage="[mail]" />
+                                              </If.Then>
+                                            </If>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </If.Then>
+                                </If>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                      </State.Entry>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">610,202.5</av:Point>
+                          <av:Size x:Key="ShapeSize">114,61</av:Size>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <State.Variables>
+                        <Variable x:TypeArguments="snm:MailMessage" Name="mail" />
+                      </State.Variables>
+                    </State>
+                  </Transition.To>
+                </Transition>
+              </State.Transitions>
+            </State>
+          </Transition.To>
+        </Transition>
+        <Transition DisplayName="No read option" sap2010:WorkflowViewState.IdRef="Transition_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">230,199.5 230,110 403,110</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">38</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">37</x:Int32>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.Condition>[initialState=0]</Transition.Condition>
+          <Transition.To>
+            <State x:Name="__ReferenceID1" DisplayName="No read option" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_2">
+              <State.Entry>
+                <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[email]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_2" MailFolder="[MailFolder]" MarkAsRead="False" Messages="[messages]" OnlyUnreadMessages="False" Password="[password]" Port="[PortIMAP]" SecureConnection="Auto" Server="[IMAPServer]" Top="[top]" />
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">403,79.5</av:Point>
+                  <av:Size x:Key="ShapeSize">114,61</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="" sap2010:WorkflowViewState.IdRef="Transition_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">517,119.15 667,119.15 667,202.5</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">48</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </Transition.To>
+                </Transition>
+              </State.Transitions>
+            </State>
+          </Transition.To>
+        </Transition>
+        <Transition DisplayName="Mark" sap2010:WorkflowViewState.IdRef="Transition_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">287,239.15 317,239.15 317,209.15 403,209.15</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">48</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">49</x:Int32>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.Condition>[initialState=1]</Transition.Condition>
+          <Transition.To>
+            <State x:Name="__ReferenceID2" DisplayName="Mark" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_3">
+              <State.Entry>
+                <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[email]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_3" MailFolder="[MailFolder]" MarkAsRead="True" Messages="[messages]" OnlyUnreadMessages="False" Password="[password]" Port="[PortIMAP]" SecureConnection="Auto" Server="[IMAPServer]" Top="[top]" />
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">403,169.5</av:Point>
+                  <av:Size x:Key="ShapeSize">114,61</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="" sap2010:WorkflowViewState.IdRef="Transition_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">517,206.1 547,206.1 547,229.95 610,229.95</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">44</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">33</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </Transition.To>
+                </Transition>
+              </State.Transitions>
+            </State>
+          </Transition.To>
+        </Transition>
+        <Transition DisplayName="unread" sap2010:WorkflowViewState.IdRef="Transition_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">287,254.4 317,254.4 317,296.1 403,296.1</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">68</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">45</x:Int32>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.Condition>[initialState=2]</Transition.Condition>
+          <Transition.To>
+            <State x:Name="__ReferenceID4" DisplayName="Unread" sap:VirtualizedContainerService.HintSize="114,61" sap2010:WorkflowViewState.IdRef="State_4">
+              <State.Entry>
+                <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[email]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_4" MailFolder="[MailFolder]" MarkAsRead="False" Messages="[messages]" OnlyUnreadMessages="True" Password="[password]" Port="[PortIMAP]" SecureConnection="Auto" Server="[IMAPServer]" Top="[top]" />
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">403,259.5</av:Point>
+                  <av:Size x:Key="ShapeSize">114,61</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="" sap2010:WorkflowViewState.IdRef="Transition_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">517,299.15 547,299.15 547,245.2 610,245.2</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">48</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">53</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </Transition.To>
+                </Transition>
+              </State.Transitions>
+            </State>
+          </Transition.To>
+        </Transition>
+      </State.Transitions>
+    </State>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <StateMachine.Variables>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="initialState" />
+      <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="messages" />
+      <Variable x:TypeArguments="x:String" Default="ExtractedEmail" Name="ExtractedEmailPath" />
+      <Variable x:TypeArguments="str:Regex" Name="illegalInFileName" />
+    </StateMachine.Variables>
+  </StateMachine>
+</Activity>
